@@ -12,118 +12,118 @@ SELECT TOP (1000) [OrderID]
       ,[CouponCode]
       ,[ReferralSource]
       ,[TotalPrice]
-  FROM [Task-3-GodwinUdofia].[dbo].[Dataset for Data Analytics 3]
+  FROM [Task-3-GodwinUdofia].[dbo].[task-3-GodwinUdofia]
 
 
   ----- Count Total Records -----
 SELECT COUNT(*) AS TotalRecords
-FROM [Dataset for Data Analytics 3];
+FROM [task-3-GodwinUdofia];
 
 
 ----- Empty Cutomers ID -----
 SELECT *
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 WHERE CustomerID IS NULL;
 
 
 ----- Empty Product Names -----
 SELECT *
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 WHERE Product IS NULL; 
 
 
 ----- Missing Payment Methods -----
 SELECT *
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 WHERE PaymentMethod IS NULL;
 
 
 ---- Check for Duplicate Orders -----
 SELECT OrderID,
        COUNT(*) AS DuplicateCount
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 GROUP BY OrderID
 HAVING COUNT(*) > 1;
 
 ----- Check for Negative values -----
 SELECT *
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 WHERE Quantity <= 0;
 
 ----- Unite Price -----
 SELECT *
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 WHERE UnitPrice <= 0;
 
 
 ----- Total Price -----
 SELECT *
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 WHERE TotalPrice <= 0;
 
 
 ----- Show Only Shipped Orders -----
 SELECT *
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 WHERE OrderStatus = 'Shipped';
 
 ----- Show Expensive Orders -----
 SELECT *
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 WHERE TotalPrice > 2000;
 
 ----- Sort Highest Orders -----
 select *
-from [Dataset for Data Analytics 3]
+from [task-3-GodwinUdofia]
 order by TotalPrice DESC;
 
 ----- Sort Lowest Orders -----
 SELECT *
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 ORDER BY TotalPrice ASC;
 
 ----- COUNT ORDERS -----
 SELECT COUNT(*) AS TotalOrders
-FROM [Dataset for Data Analytics 3];
+FROM [task-3-GodwinUdofia];
 
 ----- Total Revenue -----
 SELECT SUM(TotalPrice) AS TotalRevenue
-FROM [Dataset for Data Analytics 3];
+FROM [task-3-GodwinUdofia];
 
 ----- Average Order Value -----
 SELECT AVG(TotalPrice) AS AverageOrderValue
-FROM [Dataset for Data Analytics 3];
+FROM [task-3-GodwinUdofia];
 
 ----- Orders Per Product -----
 SELECT Product,
        COUNT(*) AS NumberOfOrders
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 GROUP BY Product;
 
 ----- Revenue Per Product -----
 SELECT Product,
        SUM(TotalPrice) AS Revenue
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 GROUP BY Product
 ORDER BY Revenue DESC;
 
 ----- Average Quantity Sold Per Product -----
 SELECT Product,
        AVG(Quantity) AS AverageQuantity
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 GROUP BY Product;
 
 ----- Orders By Payment Method -----
 SELECT PaymentMethod,
        COUNT(*) AS TotalOrders
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 GROUP BY PaymentMethod
 ORDER BY TotalOrders DESC;
 
 ----- Revenue By Payment Method -----
 SELECT PaymentMethod,
        SUM(TotalPrice) AS Revenue
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 GROUP BY PaymentMethod
 ORDER BY Revenue DESC;
 
@@ -131,14 +131,14 @@ ORDER BY Revenue DESC;
 ----- Orders By Status -----
 SELECT OrderStatus,
        COUNT(*) AS TotalOrders
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 GROUP BY OrderStatus
 ORDER BY TotalOrders DESC;
 
 ----- Best Selling Product -----
 SELECT Product,
        SUM(Quantity) AS TotalQuantitySold
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 GROUP BY Product
 ORDER BY TotalQuantitySold DESC;
 
@@ -146,14 +146,14 @@ ORDER BY TotalQuantitySold DESC;
 SELECT TOP 5
        CustomerID,
        SUM(TotalPrice) AS AmountSpent
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 GROUP BY CustomerID
 ORDER BY AmountSpent DESC;
 
 ----- Orders By Referral source
 SELECT ReferralSource,
        COUNT(*) AS OrdersGenerated
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 GROUP BY ReferralSource
 ORDER BY OrdersGenerated DESC;
 
@@ -162,7 +162,7 @@ SELECT
     YEAR([Date]) AS SalesYear,
     MONTH([Date]) AS SalesMonth,
     SUM(TotalPrice) AS Revenue
-FROM [Dataset for Data Analytics 3]
+FROM [task-3-GodwinUdofia]
 GROUP BY
     YEAR([Date]),
     MONTH([Date])
